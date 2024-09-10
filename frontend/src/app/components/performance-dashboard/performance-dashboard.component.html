@@ -1,0 +1,41 @@
+<div class="performance-dashboard">
+    <h2>Performance Dashboard</h2>
+  
+    <div *ngIf="isLoading" class="loading">
+      Loading performance data...
+    </div>
+  
+    <div *ngIf="error" class="error">
+      {{ error }}
+    </div>
+  
+    <div *ngIf="!isLoading && !error" class="dashboard-content">
+      <div *ngFor="let modelType of ['textGeneration', 'sentimentAnalysis', 'namedEntityRecognition']" class="model-type-section">
+        <h3>{{ modelType | titlecase }}</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Avg. Accuracy</th>
+              <th>Avg. Latency (ms)</th>
+              <th>User Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let model of getModelTypeData(modelType)">
+              <td>{{ model.modelName }}</td>
+              <td>{{ model.avgAccuracy | percent:'1.1-2' }}</td>
+              <td>{{ model.avgLatency | number:'1.2-2' }}</td>
+              <td>
+                <div class="star-rating">
+                  <span *ngFor="let star of [1,2,3,4,5]" 
+                        [class.filled]="star <= model.userRating">★</span>
+                  ({{ model.userRating | number:'1.1-1' }})
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

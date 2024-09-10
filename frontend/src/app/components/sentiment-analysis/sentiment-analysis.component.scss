@@ -1,0 +1,82 @@
+.sentiment-analysis {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+  
+      textarea {
+        height: 100px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+  
+      button {
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+  
+        &:disabled {
+          background-color: #ccc;
+          cursor: not-allowed;
+        }
+      }
+    }
+  
+    .results {
+      margin-top: 20px;
+  
+      h3 {
+        color: #495057;
+        margin-bottom: 15px;
+      }
+  
+      .result-card {
+        background-color: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 4px;
+        padding: 15px;
+        margin-bottom: 10px;
+  
+        h4 {
+          margin-top: 0;
+          color: #007bff;
+        }
+  
+        p {
+          margin: 5px 0;
+        }
+      }
+    }
+
+    .model-selection {
+        margin-bottom: 15px;
+      
+        label {
+          display: block;
+          margin-bottom: 5px;
+          font-weight: bold;
+        }
+      
+        .model-checkbox {
+          display: inline-block;
+          margin-right: 15px;
+      
+          input[type="checkbox"] {
+            margin-right: 5px;
+        }
+      }
+    }
+  }

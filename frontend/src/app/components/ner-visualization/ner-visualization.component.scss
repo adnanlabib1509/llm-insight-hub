@@ -1,0 +1,100 @@
+.ner-visualization {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+  
+      textarea {
+        height: 100px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+  
+      select {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+  
+      button {
+        padding: 10px;
+        background-color: #17a2b8;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+  
+        &:disabled {
+          background-color: #ccc;
+          cursor: not-allowed;
+        }
+      }
+    }
+  
+    .results {
+      margin-top: 20px;
+  
+      h3 {
+        color: #495057;
+        margin-bottom: 15px;
+      }
+  
+      .highlighted-text {
+        background-color: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 4px;
+        padding: 15px;
+        line-height: 1.6;
+  
+        .entity {
+          padding: 2px 4px;
+          border-radius: 3px;
+          font-weight: bold;
+        }
+  
+        .person { background-color: #ffeaa7; }
+        .organization { background-color: #81ecec; }
+        .location { background-color: #55efc4; }
+        .date { background-color: #74b9ff; }
+        .misc { background-color: #a29bfe; }
+      }
+  
+      .entity-legend {
+        margin-top: 20px;
+  
+        h4 {
+          margin-bottom: 10px;
+        }
+  
+        .legend-item {
+          display: inline-block;
+          margin-right: 15px;
+          margin-bottom: 10px;
+  
+          .entity-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 5px;
+          }
+  
+          .person { background-color: #ffeaa7; }
+          .organization { background-color: #81ecec; }
+          .location { background-color: #55efc4; }
+          .date { background-color: #74b9ff; }
+          .misc { background-color: #a29bfe; }
+        }
+      }
+    }
+  }

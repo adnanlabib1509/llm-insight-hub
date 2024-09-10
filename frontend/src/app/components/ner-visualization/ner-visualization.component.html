@@ -1,0 +1,24 @@
+<div class="ner-visualization">
+    <h2>Named Entity Recognition</h2>
+    <form (ngSubmit)="visualizeNER()">
+      <textarea [(ngModel)]="input" name="input" placeholder="Enter text for NER" required></textarea>
+      <select [(ngModel)]="model" name="model">
+        <option *ngFor="let m of availableModels" [value]="m.value">{{ m.name }}</option>
+      </select>
+      <button type="submit" [disabled]="isLoading">Visualize Entities</button>
+    </form>
+  
+    <div class="results" *ngIf="entities.length > 0 || isLoading">
+      <h3>Recognized Entities:</h3>
+      <p *ngIf="isLoading">Processing...</p>
+      <div class="highlighted-text" *ngIf="!isLoading" [innerHTML]="getHighlightedText()"></div>
+      
+      <div class="entity-legend" *ngIf="!isLoading">
+        <h4>Legend:</h4>
+        <div class="legend-item" *ngFor="let type of getUniqueEntityTypes()">
+          <span class="entity-dot" [ngClass]="type.toLowerCase()"></span>
+          <span>{{ type }}</span>
+        </div>
+      </div>
+    </div>
+  </div>

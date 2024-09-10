@@ -1,0 +1,67 @@
+.performance-dashboard {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+  
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+  
+    .loading, .error {
+      text-align: center;
+      padding: 20px;
+      font-style: italic;
+    }
+  
+    .error {
+      color: #dc3545;
+    }
+  
+    .dashboard-content {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+  
+    .model-type-section {
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  
+      h3 {
+        color: #007bff;
+        margin-bottom: 15px;
+      }
+  
+      table {
+        width: 100%;
+        border-collapse: collapse;
+  
+        th, td {
+          padding: 12px;
+          text-align: left;
+          border-bottom: 1px solid #dee2e6;
+        }
+  
+        th {
+          background-color: #e9ecef;
+          font-weight: bold;
+        }
+  
+        tr:last-child td {
+          border-bottom: none;
+        }
+      }
+    }
+  
+    .star-rating {
+      font-size: 1.2em;
+      color: #ffc107;
+  
+      .filled {
+        color: #ffc107;
+      }
+    }
+  }

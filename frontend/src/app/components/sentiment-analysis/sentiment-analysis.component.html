@@ -1,0 +1,27 @@
+<div class="sentiment-analysis">
+    <h2>Sentiment Analysis</h2>
+    <form (ngSubmit)="analyzeText()">
+      <textarea [(ngModel)]="input" name="input" placeholder="Enter text to analyze sentiment" required></textarea>
+      <div class="model-selection">
+        <label>Select Models:</label>
+        <div *ngFor="let model of availableModels" class="model-checkbox">
+          <input type="checkbox" 
+                 [id]="model.value" 
+                 [value]="model.value" 
+                 (change)="$event.target.checked ? selectedModels.push(model.value) : selectedModels = selectedModels.filter(m => m !== model.value)">
+          <label [for]="model.value">{{ model.name }}</label>
+        </div>
+      </div>
+      <button type="submit" [disabled]="isLoading || selectedModels.length === 0">Analyze Sentiment</button>
+    </form>
+    
+    <div class="results" *ngIf="results.length > 0 || isLoading">
+      <h3>Results:</h3>
+      <p *ngIf="isLoading">Analyzing...</p>
+      <div class="result-card" *ngFor="let result of results">
+        <h4>{{ result.model }}</h4>
+        <p>Sentiment: <span [style.color]="getSentimentColor(result.sentiment)">{{ result.sentiment }}</span></p>
+        <p>Score: {{ result.score.toFixed(2) }}</p>
+      </div>
+    </div>
+  </div>

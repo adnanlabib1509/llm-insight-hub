@@ -1,0 +1,22 @@
+<div class="app-container">
+    <header>
+      <h1>{{ title }}</h1>
+      <nav>
+        <ul>
+          <li><a routerLink="/text-generation" routerLinkActive="active">Text Generation</a></li>
+          <li><a routerLink="/sentiment-analysis" routerLinkActive="active">Sentiment Analysis</a></li>
+          <li><a routerLink="/ner-visualization" routerLinkActive="active">NER Visualization</a></li>
+          <li><a routerLink="/user-feedback" routerLinkActive="active">User Feedback</a></li>
+          <li><a routerLink="/performance-dashboard" routerLinkActive="active">Performance Dashboard</a></li>
+        </ul>
+      </nav>
+    </header>
+  
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  
+    <footer>
+      <p>&copy; 2024 LLM Insight Hub. All rights reserved.</p>
+    </footer>
+  </div>

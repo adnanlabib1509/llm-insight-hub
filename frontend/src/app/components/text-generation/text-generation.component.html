@@ -1,0 +1,17 @@
+<div class="text-generation">
+    <h2>Text Generation</h2>
+    <form (ngSubmit)="onSubmit()">
+      <textarea [(ngModel)]="input" name="input" placeholder="Enter your prompt here" required></textarea>
+      <select [(ngModel)]="model" name="model">
+        <option value="gpt2">GPT-2</option>
+        <option value="bert">BERT</option>
+        <option value="t5">T5</option>
+      </select>
+      <button type="submit" [disabled]="isLoading">Generate</button>
+    </form>
+    <div class="output" *ngIf="output || isLoading">
+      <h3>Generated Text:</h3>
+      <p *ngIf="isLoading">Generating...</p>
+      <p *ngIf="!isLoading">{{ output }}</p>
+    </div>
+  </div>

@@ -1,0 +1,43 @@
+<div class="user-feedback">
+    <h2>User Feedback</h2>
+    <form (ngSubmit)="submitFeedback()" *ngIf="!feedbackSubmitted">
+      <div class="form-group">
+        <label for="modelType">Model Type:</label>
+        <select id="modelType" [(ngModel)]="feedbackItem.modelType" name="modelType" (change)="onModelTypeChange()" required>
+          <option value="">Select Model Type</option>
+          <option *ngFor="let type of modelTypes" [value]="type">{{type}}</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="modelName">Model Name:</label>
+        <select id="modelName" [(ngModel)]="feedbackItem.modelName" name="modelName" required>
+          <option value="">Select Model Name</option>
+          <option *ngFor="let name of modelNames[feedbackItem.modelType]" [value]="name">{{name}}</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label>Rating:</label>
+        <div class="rating">
+          <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
+            <input type="radio" [id]="'star'+star" name="rating" [value]="star" [(ngModel)]="feedbackItem.rating" required>
+            <label [for]="'star'+star">{{star}} stars</label>
+          </ng-container>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="comment">Comment:</label>
+        <textarea id="comment" [(ngModel)]="feedbackItem.comment" name="comment" required></textarea>
+      </div>
+  
+      <button type="submit" [disabled]="!isFormValid() || isSubmitting">Submit Feedback</button>
+    </form>
+  
+    <div class="feedback-success" *ngIf="feedbackSubmitted">
+      <h3>Thank you for your feedback!</h3>
+      <p>Your input is valuable and helps us improve our models.</p>
+      <button (click)="feedbackSubmitted = false">Submit Another Feedback</button>
+    </div>
+  </div>
